@@ -16,3 +16,16 @@ function langaugeSelector(language){
     }
     editor.session.setMode("ace/mode/"+language)
 }
+
+function toggleCustomInput(){
+    //document.getElementById("#output-container").scrollIntoView();
+    let current = $("#custom-input").css("display");
+    if(current == "none"){
+        $("#custom-input").css("display","");
+        $('.custom-input-text:input:visible').first().focus()
+
+
+    }else{
+        $("#custom-input").css("display","none");
+    }
+}
