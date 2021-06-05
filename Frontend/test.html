@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/test.css"> 
+    <title>Online Judge</title>
+  </head>
+  <body>
+
+    <!-- Header -->
+
+    <div class="conatiner-fluid justify-content-end">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#">ANOJ</a>
+        </nav>
+    </div>
+
+
+    <!-- Middle  -->
+    <div class="conatiner-fluid">
+        <div class="row">
+
+
+            <!-- Problem section -->
+
+            <div class="col-lg-5 left-container" >
+
+                <div class="row">
+                    <!-- Problem count -->
+                    <div class="col-sm-1 problem-status-bar">
+                        <h5>problem1</h5>
+                    </div>
+                    
+                    <!-- Corresponding problem -->
+
+                    <div class="col-sm-11 problem-container">
+                        Here reside problem
+                    </div>
+                </div>
+                
+            </div>
+
+
+
+
+
+
+
+
+            <!-- Editor section -->
+
+            <div class="col-lg-7 right-container">
+
+                <!-- Language selector -->
+                
+                <div class="col editor-status-bar" style="height: 3rem;">
+                    
+                    <div class="dropdown" style="float: right;margin-top: .5rem;margin-right: 3rem;">
+                        <button class="btn btn-secondary dropdown-toggle btn-sm" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span class="ui-button-text">Select Language</span>
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                          <button class="dropdown-item" type="button" onclick="langaugeSelector('cpp')">Cpp</button>
+                          <button class="dropdown-item" type="button" onclick="langaugeSelector('python')">Python</button>
+                          <button class="dropdown-item" type="button" onclick="langaugeSelector('java')">Java</button>
+                        </div>
+                    </div>
+                    <h5 style="float: right;margin: .6rem 2rem .5rem 0;">Language</h5>
+                </div>
+
+                <!-- Editor Area -->
+
+                <div class="col editor-container" style="height: 40rem;">
+<div id="editor"></div>   
+                </div>
+
+                <!-- Code execution bar -->
+
+                <div class="col execution-bar" style="height: 3rem;">
+
+                    <button type="button" class="btn btn-secondary btn-sm" style="float: right;margin-top: .5rem;">Submit Code</button>
+                    <button type="button" class="btn btn-secondary btn-sm" style="float: right;margin-right: 20px;margin-top: .5rem;">Run Code</button>
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" style="margin: 1rem ;">
+                    <label class="form-check-label" for="flexCheckDefault" style="margin: .7rem 3rem;">Custom Input</label>
+                </div>
+
+                <!-- Custom Input Area -->
+
+                <div class="col custom-input" style="display: none;">
+                    <textarea style="width: 100%;min-height: 10rem;resize: none;margin-bottom: 1rem;"></textarea>
+                </div>
+
+                <!-- Output Area -->
+
+                <div class="col output-container" style="display: none;">
+                    <textarea style="width: 100%;min-height: 10rem;resize: none;margin-bottom: 1rem;"></textarea>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="script/src-min-noconflict/ace.js"></script>
+    <script src="script/test.js"></script>
+</body>
+</html>

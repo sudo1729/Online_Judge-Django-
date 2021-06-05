@@ -1,0 +1,25 @@
+body{
+    overflow-x: hidden;
+    font-family: 'Montserrat', sans-serif;
+}
+
+#editor {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    font-size: 17px;
+}
+
+
+
+.problem-status-bar{
+    background-color:#d8d8d8;
+}
+
+.problem-status-bar h5{
+    margin-top: 10rem;
+    transform-origin: 0 0;
+    transform: rotate(270deg);
+}
