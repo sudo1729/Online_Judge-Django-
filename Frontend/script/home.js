@@ -1,7 +1,8 @@
 var editor = ace.edit("editor");
-editor.setTheme("ace/theme/monokai");
+editor.setTheme("ace/theme/dracula");
 editor.session.setMode("ace/mode/javascript");
 
+var languageInput = $('input[name="language"]');
 
 function capitalize(s)
 {
@@ -9,13 +10,21 @@ function capitalize(s)
 }
 
 function langaugeSelector(language){
-    console.log(language);
+    languageInput.val(capitalize(language))
+    //console.log(languageInput.val());
     $("#dropdownMenu2 span").text(capitalize(language));
-    if(language ==='cpp'){
+    if(language ==='c++'){
         language = "c_cpp";
     }
     editor.session.setMode("ace/mode/"+language)
 }
+
+function questionSelector(question){
+    $('input[name="question]').val(question);
+    $("#dropdownMenu1 span").text(question);
+}
+
+
 
 function toggleCustomInput(){
     //document.getElementById("#output-container").scrollIntoView();
@@ -29,3 +38,16 @@ function toggleCustomInput(){
         $("#custom-input").css("display","none");
     }
 }
+
+editor.setOptions({
+    enableBasicAutocompletion: true,
+    enableSnippets: true,
+    enableLiveAutocompletion: true
+});
+
+
+var input = $('input[name="code"]');
+
+editor.getSession().on("change", function () {
+    input.val(editor.getSession().getValue());
+});

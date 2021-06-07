@@ -9,7 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/test.css"> 
+    <link rel="stylesheet" href="css/home.css"> 
     <title>Online Judge</title>
   </head>
   <body>
@@ -33,10 +33,11 @@
             <div class="col-lg-5 left-container" >
                     <!-- Problem count -->
                     <div class="col problem-status-bar" id= "problem-status-bar" style="min-height: 3rem;">
-                        <div class="dropdown" style="float: right;margin-top: .5rem;">
+                        <div class="dropdown" style="float: right;margin-top: .5rem;margin-right: 3rem;">
                             <button class="btn btn-secondary dropdown-toggle btn-sm" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="ui-button-text">Select Question</span>
                             </button>
+                            <input style="display: none;" name="question">
                             <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
                               <button class="dropdown-item" type="button" onclick="questionSelector('1')">1</button>
                               <button class="dropdown-item" type="button" onclick="questionSelector('2')">2</button>
@@ -73,8 +74,9 @@
                         <button class="btn btn-secondary dropdown-toggle btn-sm" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <span class="ui-button-text">Select Language</span>
                         </button>
+                        <input style="display: none;" name="language">
                         <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                          <button class="dropdown-item" type="button" onclick="langaugeSelector('cpp')">Cpp</button>
+                          <button class="dropdown-item" type="button" onclick="langaugeSelector('c++')">C++</button>
                           <button class="dropdown-item" type="button" onclick="langaugeSelector('python')">Python</button>
                           <button class="dropdown-item" type="button" onclick="langaugeSelector('java')">Java</button>
                         </div>
@@ -85,28 +87,32 @@
                 <!-- Editor Area -->
 
                 <div class="col editor-container" style="height: 40rem;">
-<div id="editor"></div>   
+                <input type="hidden" name="code" style="display: none;"> 
+<pre id="editor"></pre> 
+
                 </div>
 
                 <!-- Code execution bar -->
 
                 <div class="col execution-bar " style="height: 3rem;">
 
-                    <button type="button" class="btn btn-secondary btn-sm" style="float: right;margin-top: .5rem;">Submit Code</button>
-                    <button type="button" class="btn btn-secondary btn-sm" style="float: right;margin-right: 20px;margin-top: .5rem;">Run Code</button>
+                    <button type="button" class="btn btn-secondary btn-sm" style="float: right;margin-top: .5rem;" id="submitBtn">Submit Code</button>
+                    <button type="button" class="btn btn-secondary btn-sm" style="float: right;margin-right: 20px;margin-top: .5rem;" id="runCode">Run Code</button>
                     <button type="button" class="btn btn-secondary btn-sm" style="margin-top: .5rem;" onclick="toggleCustomInput()">Custom Input</button>
                 </div>
 
                 <!-- Custom Input Area -->
 
-                <div class="col custom-input" id="custom-input" style="display:none">
-                    <textarea style="width: 100%;min-height: 10rem;resize: none;margin-bottom: 1rem;" class="custom-input-text"></textarea>
+                <div class="col custom-input" id="custom-input" style="display: none;">
+                    <h5>Enter cutsom Input</h5>
+<pre><textarea style="width: 50%; min-height: 10rem;resize: none;margin-bottom: 1rem;" class="custom-input-text" id="custom-input-text"></textarea></pre> 
                 </div>
 
                 <!-- Output Area -->
 
                 <div class="col output-container" id="output-container" style="display: none;">
-                    <textarea style="width: 100%;min-height: 10rem;resize: none;margin-bottom: 1rem;"></textarea>
+                    <h5>Output</h5>
+<pre><textarea style="width: 100%;min-height: 10rem;resize: none;margin-bottom: 1rem;font-size: 1.3rem;" id="output" readonly></textarea></pre>
                 </div>
 
             </div>
@@ -125,10 +131,12 @@
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="script/src-min-noconflict/ace.js"></script>
-    <script src="script/test.js"></script>
+    <script src="script/src-min-noconflict/ext-language_tools.js"></script>
+    <script src="script/home.js"></script>
+    <script src="script/api.js"></script>
 </body>
 </html>
