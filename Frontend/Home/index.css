@@ -54,7 +54,7 @@ body{
     footer{
         height: 7vh;
     }
-    
+
 
 }
 
@@ -90,8 +90,8 @@ textarea{
 }
 .card{
     border: none;
-    margin-top: .5rem;
     width: 100%;
+    margin-top: .5rem;
 }
 .right-border{
     border-right: solid;
