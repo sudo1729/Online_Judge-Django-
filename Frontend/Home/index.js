@@ -5,6 +5,9 @@ let code = $('input[name="code"]');
 let customInput = $('textarea[name="customInput"]');
 let expectedOutput = $('textarea[name="expectedOutput"]');
 
+function loginContainerToggle(){
+    window.location.href="../Login/login.html";
+}
 
 function languageSelector(inputLanguage){
     language.val(inputLanguage);
