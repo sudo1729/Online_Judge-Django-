@@ -35,7 +35,7 @@ body{
         height: 75vh;
     }
     .btn{
-        margin: 1vh;
+        margin: .8vh;
         font-size: 2vh;
     }
     footer{
@@ -95,6 +95,7 @@ textarea{
 }
 .right-border{
     border-right: solid;
+    color: #0F2027;
 }
 .card-header{
     max-height: 1em;
@@ -119,6 +120,3 @@ h6{
     font-weight: bolder;
 }
 
-footer{
-    padding-top: 1.2vh;
-}

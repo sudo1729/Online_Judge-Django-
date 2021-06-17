@@ -1,12 +1,21 @@
 let editor = ace.edit("editor");
 editor.setTheme("ace/theme/dracula");
-editor.session.setMode("ace/mode/c_cpp");
+let language = $('input[name="language"]');
+let code = $('input[name="code"]');
+let customInput = $('textarea[name="customInput"]');
+let expectedOutput = $('textarea[name="expectedOutput"]');
+
+
+function languageSelector(inputLanguage){
+    language.val(inputLanguage);
+    alert(language.val());
+    alert(customInput.val());
+}
 
 
 
 
-var input = $('input[name="code"]');
 
 editor.getSession().on("change", function () {
-    input.val(editor.getSession().getValue());
+    code.val(editor.getSession().getValue());
 });
