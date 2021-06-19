@@ -36,7 +36,13 @@ def login(request):
                 return redirect('login')
             user  = User.objects.create_user(username = username,first_name = first_name,last_name = last_name,email = email,password = password)
             user.save()
-            return redirect('login')
+            user = authenticate(username = username,password = password)
+            if user is not None:
+                auth.login(request,user)
+                return redirect('/')
+            else:
+                print("Invalid credentials")
+                return redirect('login')
     else:
         return render(request,'accounts/login.html')
 
