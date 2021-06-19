@@ -1,0 +1,183 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script type="text/javascript" id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+        </script>
+    </script>
+    <!-- Bootstrap CSS -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Open+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="{%static 'Home/index.css' %}">
+    <title>ANOJ | A place where we judge you by your code</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+        <a class="navbar-brand">ANOJ</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-item nav-link" href="#">Features</a>
+                <a class="nav-item nav-link" href="#">Pricing</a>
+            </div>
+        </div>
+        <a class="navbar-brand" id="userName" style="display: none;">Hello Akhilesh</a>
+        <button class="btn btn-sm btn-danger" id="logOutBtn" style="display: none;">Logout</button>
+        
+    </nav>
+
+    <!-- For logged In Users, As an Online Judge+IDE -->
+
+    <div class="row no-gutters" id="loggedInPage">
+        <div class="col-md-5 left-container">
+
+            <div class="row no-gutters">
+
+                <div class="col-sm-12 status-bar">
+
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle btn-sm" type="button" id="dropdownMenu1"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span class="ui-button-text">Select Question</span>
+                        </button>
+
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                            <button class="dropdown-item" type="button" onclick="langaugeSelector('c++')">Problem 1<span style="float: right;margin: .1rem .2rem;display: none;"><i class="fas fa-check-circle"></i></span></button>
+                            <button class="dropdown-item" type="button" onclick="langaugeSelector('c++')">Problem 2<span style="float: right;margin: .1rem .2rem;display: none;"><i class="fas fa-check-circle"></i></span></button>
+                            <button class="dropdown-item" type="button" onclick="langaugeSelector('c++')">Problem 3<span style="float: right;margin: .1rem .2rem;display: none;"><i class="fas fa-check-circle"></i></span></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row problem-container no-gutters">
+
+                <div class="card row-whith-wide-cards w-100">
+                    <h6 class="card-header w-100">Problem</h6>
+                    <div class="card-body no-gutters">
+                        <p id="problem">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem minima aliquam dolores
+                            eligendi assumenda accusamus sit facere vitae, quia id iste nisi, non in sunt debitis neque
+                            modi odit beatae qui laborum maiores, provident officiis ut doloribus. Impedit rerum est
+                            tenetur, quia eaque ducimus enim quibusdam cupiditate reprehenderit sequi et aliquid
+                            veritatis quam eveniet quidem aut non facilis ex temporibus? Nobis minima officia a quo
+                            nesciunt atque suscipit, dolor voluptatem consequatur commodi accusamus odio rem. Error,
+                            consectetur cum maiores, earum debitis beatae officia quasi id, ratione provident laborum!
+                            Quis autem repellendus beatae rem unde reprehenderit qui sint commodi explicabo corrupti?
+                        </p>
+                    </div>
+                </div>
+                <div class="col-sm-12 card no-gutters">
+                    <h6 class="card-header">Constraints</h6>
+                    <div class="card-body no-gutters">
+                        <p id="constraint">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eaque minima ea quia totam animi enim quod quidem? Soluta recusandae doloremque deleniti iusto nesciunt consequuntur itaque quidem, veniam reprehenderit corporis voluptatum consectetur illo mollitia. Natus eius maiores aspernatur a quod ab quidem excepturi, in pariatur totam distinctio maxime labore porro dolorum. Enim qui voluptates totam aliquam dicta suscipit, distinctio dolorum perferendis? Accusamus doloremque inventore quisquam magni placeat consequatur eveniet. Dicta ratione accusamus dignissimos itaque sunt exercitationem eaque atque magnam temporibus quae explicabo sit repellendus earum eum necessitatibus, at ipsa laborum ipsum ad animi id possimus. Hic molestias dicta dolores voluptates velit!</p>
+                    </div>
+                </div>
+                <div class="col-sm-6 card no-gutters right-border">
+                    <h6 class="card-header">Sample Input</h6>
+                    <div class="card-body no-gutters">
+                        <p id="sampleInput"></p>
+                    </div>
+                </div>
+                <div class="col-sm-6 card no-gutters">
+                    <h6 class="card-header">Sample Output</h6>
+                    <div class="card-body no-gutters">
+                        <p id="sampleOutput"></p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-md-7 right-container">
+            <div class="row no-gutters">
+                <div class="col-sm-12 status-bar">
+                    <input style="display: none;" name="language">
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle btn-sm" type="button" id="dropdownMenu2"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span class="ui-button-text">Select Language</span>
+                        </button>
+
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                            <button class="dropdown-item" type="button" onclick="langaugeSelector('c++')">C++</button>
+                            <button class="dropdown-item" type="button"
+                                onclick="langaugeSelector('python')">Python</button>
+                            <button class="dropdown-item" type="button" onclick="langaugeSelector('java')">Java</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row no-gutters">
+                <div class="col-sm-12 editor-container">
+                    <input type="hidden" name="code" style="display: none;">
+                    <div id="editor"></div>
+                </div>
+            </div>
+            <div class="row no-gutters">
+                <div class="col-sm-12 status-bar">
+
+                    <button type="button" class="btn btn-secondary btn-sm" style="float: left;">Custom Input</button>
+                    <button type="button" class="btn btn-secondary btn-sm">Submit Code</button>
+                    <button type="button" class="btn btn-primary btn-sm">Run Code</button>
+                </div>
+                <div class="col-sm-5 card no-gutters input-card right-border" style="margin-top: 1em;">
+                    <h6 class="card-header">Custom Input</h6>
+                    <textarea name="customInput" id="customInput" data-gramm="false" style="min-height: 45vh;"></textarea>
+                </div>
+                <div class="col-sm-7 card no-gutters" style="margin-top: 1em;">
+                    <h6 class="card-header">Output</h6>
+                    <div class="card-body no-gutters">
+                        <pre id="output" style="min-height: 35vh;">gfsfsfssfsdf  </pre>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+    <footer style="text-align: center;margin-top: .2vh;">
+        <h6>copyright @Akhilesh</h6> 
+    </footer>
+    
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script src="{% static 'Home/src/ace.js' %}"></script>
+    <script src="{% static 'Home/index.js' %}"></script>
+
+</body>
+
+</html>
