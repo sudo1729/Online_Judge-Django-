@@ -1,36 +1,39 @@
 from django.shortcuts import render,HttpResponse,redirect
 from django.contrib.auth.models import User,auth
 from django.contrib.auth import authenticate
-
 from Compiler.models import Compiler
 from Compiler.serializers import CompilerSerializer
 from django.http import Http404
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
-
-
+from .random_generator import getrandom
 class CompilerList(APIView):
 
-
-    def get(self, request, format=None):
-        compiler = Compiler.objects.all()
-        serializer = CompilerSerializer(compiler, many=True)
-        return Response(serializer.data)
+    # def get(self, request, format=None):
+    #     compiler = Compiler.objects.all()
+    #     serializer = CompilerSerializer(compiler, many=True)
+    #     return Response(serializer.data)
 
     def post(self, request, format=None):
-        serializer = CompilerSerializer(data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-    def put(self, request, pk, format=None):
-        snippet = self.get_object(pk)
-        serializer = SnippetSerializer(snippet, data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        data = request.data
+        try:
+            snippet = Compiler.objects.get(slug=data['slug'])
+            serializer = CompilerSerializer(snippet,data=request.data)
+            if serializer.is_valid():
+                serializer.save()
+                return Response(serializer.data)
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        except:
+            serializer = CompilerSerializer(data=request.data)
+            if(data['slug'] == ""):
+                slug = getrandom()
+                data['slug'] = slug
+            if serializer.is_valid():
+                serializer.save()
+                return Response(serializer.data, status=status.HTTP_201_CREATED)
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
 # Create your views here.
 
 # For login from current page
@@ -81,5 +84,9 @@ def logout(request,slug):
 # Login ends here
 
 
-def check(request,slug):
-    return render(request,"ide.html",{'slug':slug})
+def fetchpage(request,slug):
+    try:
+        data = Compiler.objects.filter(slug=slug)
+        return render(request,"ide.html",{"data":data[0]})
+    except:
+        return render(request,"404.html")

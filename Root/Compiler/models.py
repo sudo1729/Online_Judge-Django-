@@ -5,10 +5,10 @@ class Compiler(models.Model):
     slug = models.CharField(max_length=10)
     code = models.TextField()
     language = models.CharField(max_length=10)
-    customInput = models.TextField()
-    expectedOuput = models.TextField()
-    output = models.TextField()
-    verdict = models.CharField(max_length=10)
+    customInput = models.TextField(blank=True)
+    expectedOutput = models.TextField(blank=True)
+    output = models.TextField(blank=True)
+    verdict = models.CharField(max_length=10,blank=True)
 
     class Meta:
         ordering = ['created']

@@ -41,9 +41,9 @@
     </div>
     {% if user.is_authenticated %}
         <a class="navbar-brand">{{ user.first_name }}</a>
-        <a class="btn btn-sm btn-danger" id="logOutBtn" href="{{ slug }}/logout">Logout</a>
+        <a class="btn btn-sm btn-danger" id="logOutBtn" href="{{ data.slug }}/logout">Logout</a>
     {% else %}
-        <a class="btn btn-sm btn-primary" id="logOutBtn" href="{{ slug }}/login">Login/Register</a>
+        <a class="btn btn-sm btn-primary" id="logOutBtn" href="{{ data.slug }}/login">Login/Register</a>
     {% endif %}
 
 </nav>
@@ -56,11 +56,11 @@
 
         <div class="row no-gutters">
             <div class="col-sm-12 status-bar">
-                <input style="display: none;" name="language">
+                <input style="display: none;" name="language" value="{{data.language}}">
                 <div class="dropdown">
                     <button class="btn btn-secondary dropdown-toggle btn-sm" type="button" id="dropdownMenu2"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <span class="ui-button-text" id="onScreenLanguage">Select Language</span>
+                        <span class="ui-button-text" id="onScreenLanguage">{{data.language}}</span>
                     </button>
 
                     <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
@@ -76,33 +76,32 @@
 
         <div class="row no-gutters">
             <div class="col-sm-12 editor-container">
-                <input type="hidden" name="code" style="display: none;">
-                <div id="editor"></div>
+                <input type="hidden" name="code" style="display: none;" value="{{data.code}}">
+                <div id="editor">{{data.code}}</div>
             </div>
         </div>
         <div class="row no-gutters">
             <div class="col-sm-12 status-bar">
-                <button type="button" class="btn btn-primary btn-sm">Run Code</button>
+                <button type="button" class="btn btn-primary btn-sm" onclick="runcode()">Run Code</button>
             </div>
         </div>
 
 
     </div>
     <div class="col-md-6 right-container">
-        <div class="row no-gutters" style="margin-top: -.5rem;">
+        <div class="row no-gutters">
             <div class="col-sm-6 card no-gutters right-border">
                 <h6 class="card-header">Custom Input</h6>
-                <textarea name="customInput" id="customInput" data-gramm="false" style="min-height: 35vh;"></textarea>
+                <textarea name="customInput" id="customInput" data-gramm="false" style="min-height: 35vh;">{{data.customInput}}</textarea>
             </div>
             <div class="col-sm-6 card no-gutters">
                 <h6 class="card-header">Expected Output</h6>
-                <textarea name="expectedInput" id="expectedInput" data-gramm="false"
-                          style="min-height: 35vh;"></textarea>
+                <textarea name="expectedOutput" id="expectedOutput" data-gramm="false" style="min-height: 35vh;">{{data.expectedOutput}}</textarea>
             </div>
             <div class="col-sm-12 card no-gutters">
                 <h6 class="card-header">Output</h6>
                 <div class="card-body no-gutters">
-                    <pre id="output" style="min-height: 35vh;">   </pre>
+                    <pre id="output" style="min-height: 35vh;">{{data.output}}</pre>
                 </div>
             </div>
 
