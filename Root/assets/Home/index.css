@@ -54,6 +54,9 @@ body{
     footer{
         height: 7vh;
     }
+    .card{
+        margin-top: .4rem;
+    }
 
 
 }

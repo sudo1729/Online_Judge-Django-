@@ -29,7 +29,7 @@
             aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        
+
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
                 <a class="nav-item nav-link active" href="/">Home <span class="sr-only">(current)</span></a>
@@ -45,7 +45,7 @@
         {% else %}
         <a class="btn btn-sm btn-primary" id="logOutBtn" href="login">Login/Register</a>
         {% endif %}
-        
+
     </nav>
 
 
@@ -53,71 +53,79 @@
 
 
     <!-- For Not logged in users, As an IDE Only -->
+    <!-- <form action="ide" method="POST">
+        {% csrf_token %}
+ -->
 
-    <div class="row no-gutters" id="loggedOutPage">
-        <div class="col-md-6 left-container">
+        <div class="row no-gutters" id="loggedOutPage">
+            <div class="col-md-6 left-container">
 
-            <div class="row no-gutters">
-                <div class="col-sm-12 status-bar">
-                    <input style="display: none;" name="language">
-                    <div class="dropdown">
-                        <button class="btn btn-secondary dropdown-toggle btn-sm" type="button" id="dropdownMenu2"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <span class="ui-button-text">Select Language</span>
-                        </button>
+                <div class="row no-gutters">
+                    <div class="col-sm-12 status-bar">
+                        <input type="hidden" name="language">
+                        <div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle btn-sm" type="button" id="dropdownMenu2"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="ui-button-text" id="onScreenLanguage">Select Language</span>
+                            </button>
 
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                            <button class="dropdown-item" type="button" onclick="languageSelector('c++')">C++</button>
-                            <button class="dropdown-item" type="button"
-                                onclick="languageSelector('python')">Python</button>
-                            <button class="dropdown-item" type="button" onclick="languageSelector('java')">Java</button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                <button class="dropdown-item" type="button"
+                                    onclick="languageSelector('c_cpp')">C++</button>
+                                <button class="dropdown-item" type="button"
+                                    onclick="languageSelector('python')">Python</button>
+                                <button class="dropdown-item" type="button"
+                                    onclick="languageSelector('java')">Java</button>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="row no-gutters">
-                <div class="col-sm-12 editor-container">
-                    <input type="hidden" name="code" style="display: none;">
-                    <div id="editor"></div>
+                <div class="row no-gutters">
+                    <div class="col-sm-12 editor-container">
+                        <input type="hidden" name="code">
+                        <div id="editor"></div>
+                    </div>
                 </div>
-            </div>
-            <div class="row no-gutters">
-                <div class="col-sm-12 status-bar">
-                    <button type="button" class="btn btn-primary btn-sm">Run Code</button>
-                </div>
-            </div>
-
-
-        </div>
-        <div class="col-md-6 right-container">
-            <div class="row no-gutters" style="margin-top: -.5rem;">
-                <div class="col-sm-6 card no-gutters right-border">
-                    <h6 class="card-header" >Custom Input</h6>
-                    <textarea name="customInput" id="customInput" data-gramm="false" style="min-height: 35vh;"></textarea>
-                </div>
-                <div class="col-sm-6 card no-gutters" >
-                    <h6 class="card-header">Expected Output</h6>
-                    <textarea name="expectedInput" id="expectedInput" data-gramm="false" style="min-height: 35vh;"></textarea>
-                </div>
-                <div class="col-sm-12 card no-gutters">
-                    <h6 class="card-header">Output</h6>
-                    <div class="card-body no-gutters" >
-                        <pre id="output" style="min-height: 35vh;">gfsfsfssfsdf   </pre>
+                <div class="row no-gutters">
+                    <div class="col-sm-12 status-bar">
+                        <button type="button" class="btn btn-primary btn-sm" onclick="runcode()">Run Code</button>
                     </div>
                 </div>
 
-            </div>
 
+            </div>
+            <div class="col-md-6 right-container">
+                <div class="row no-gutters" style="margin-top: -.5rem;">
+                    <div class="col-sm-6 card no-gutters right-border">
+                        <h6 class="card-header">Custom Input</h6>
+                        <textarea name="customInput" id="customInput" data-gramm="false"
+                            style="min-height: 35vh;"></textarea>
+                    </div>
+                    <div class="col-sm-6 card no-gutters">
+                        <h6 class="card-header">Expected Output</h6>
+                        <textarea name="expectedInput" id="expectedInput" data-gramm="false"
+                            style="min-height: 35vh;"></textarea>
+                    </div>
+                    <div class="col-sm-12 card no-gutters">
+                        <h6 class="card-header">Output</h6>
+                        <div class="card-body no-gutters">
+                            <pre id="output" style="min-height: 35vh;">gfsfsfssfsdf   </pre>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
         </div>
-    </div>
+    <!-- </form> -->
 
 
 
     <footer style="text-align: center;padding: 1vh;">
-        <h6 >Copyright @Akhilesh</h6> 
+        <h6>Copyright @Akhilesh</h6>
     </footer>
-    
+
 
 
     <!-- Optional JavaScript -->
@@ -130,8 +138,11 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
+
     <script src="{% static 'Home/src/ace.js' %}"></script>
+    <script src="{% static 'Home/src/ext-language_tools.js' %}"></script>
     <script src="{% static 'Home/index.js' %}"></script>
+    <script src="{% static 'Home/api.js' %}"></script>
 
 </body>
 

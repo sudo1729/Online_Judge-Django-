@@ -11,10 +11,9 @@ function loginContainerToggle(){
 
 function languageSelector(inputLanguage){
     language.val(inputLanguage);
-    alert(language.val());
-    alert(customInput.val());
+    editor.getSession().setMode("ace/mode/"+inputLanguage);
+    $('#onScreenLanguage').text(inputLanguage)
 }
-
 
 
 

@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'corsheaders',
     'rest_framework',
     'Accounts.apps.AccountsConfig',
-    'Anoj.apps.AnojConfig'
+    'Anoj.apps.AnojConfig',
+    'Compiler.apps.CompilerConfig'
 ]
 
 MIDDLEWARE = [

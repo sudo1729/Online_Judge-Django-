@@ -114,11 +114,11 @@
                     <div class="dropdown">
                         <button class="btn btn-secondary dropdown-toggle btn-sm" type="button" id="dropdownMenu2"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <span class="ui-button-text">Select Language</span>
+                            <span class="ui-button-text" id="onScreenLanguage">Select Language</span>
                         </button>
 
                         <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                            <button class="dropdown-item" type="button" onclick="langaugeSelector('c++')">C++</button>
+                            <button class="dropdown-item" type="button" onclick="langaugeSelector('c_cpp')">C++</button>
                             <button class="dropdown-item" type="button"
                                 onclick="langaugeSelector('python')">Python</button>
                             <button class="dropdown-item" type="button" onclick="langaugeSelector('java')">Java</button>
@@ -178,7 +178,9 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
+    
     <script src="{% static 'Home/src/ace.js' %}"></script>
+    <script src="{% static 'Home/src/ext-language_tools.js' %}"></script>
     <script src="{% static 'Home/index.js' %}"></script>
 
 </body>
