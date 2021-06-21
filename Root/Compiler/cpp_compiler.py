@@ -11,7 +11,7 @@ def executeCppCode(data):
     programInput = data['customInput'].encode()
     output,verdict="","RE"
     
-    expectedOutput = re.sub('\n', '',data['expectedOutput'])
+    expectedOutput = data['expectedOutput']
     compilation = run(["g++", "-Wall","-w", "-o", data["slug"], data["slug"]+".cpp"], stdout=PIPE, stderr=STDOUT)
     if(compilation.returncode == 0):
         try:
