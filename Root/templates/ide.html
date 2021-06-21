@@ -113,8 +113,12 @@
                 <textarea name="expectedOutput" id="expectedOutput" data-gramm="false" style="min-height: 35vh;">{{data.expectedOutput}}</textarea>
             </div>
             <div class="col-sm-12 card no-gutters">
+                
                 <h6 class="card-header">Output</h6>
                 <div class="card-body no-gutters">
+                    <div class="spinner-border text-info" role="status" id='running' style="display: none;">
+                        <span class="sr-only">Running...</span>
+                    </div>
                     <pre id="output" style="min-height: 35vh;">{{data.output}}</pre>
                 </div>
             </div>

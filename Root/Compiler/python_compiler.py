@@ -3,7 +3,7 @@ import os
 import sys
 def executePythonCode(data):
     try:
-        res = subprocess.run([sys.executable, "-c", data['code']],input=data['customInput'], capture_output=True, text=True,timeout=5)
+        res = subprocess.run([sys.executable, "-c", data['code']],input=data['customInput'], capture_output=True, text=True,timeout=3)
         if(res.stderr):
             verdict = "RE"
         elif(str(res.stdout).rstrip() == str(data['expectedOutput']).rstrip()):

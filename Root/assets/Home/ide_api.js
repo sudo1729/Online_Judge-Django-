@@ -20,12 +20,12 @@ function runcode() {
     xhr.open("POST", "http://127.0.0.1:8000/ide/snippets/", true);
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.onprogress = function () {
-        console.log("On progress");
+      $('#running').css("display","block");
     };
 
     xhr.onload = function () {
         const obj = JSON.parse(this.response);
-
+        $('#running').css("display","none");
         $('input[name="code"]').val(obj.code);
         $('input[name="language"]').val(obj.language);
         $("#customInput").val(obj.customInput);
