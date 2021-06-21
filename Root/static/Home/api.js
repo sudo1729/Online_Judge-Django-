@@ -28,22 +28,7 @@ function runcode(){
     // What to do when response is ready
     xhr.onload = function () {
         const obj = JSON.parse(this.response);
-        console.log(obj);
-        async function setlocation(){
-            if(slug == ""){
-                window.location.href="http://127.0.0.1:8000/ide/"+obj.slug;
-            }
-            return;
-        }
-        async function updatepage(){
-            await setlocation();
-            code.val(obj.code);
-            language.val(obj.language);
-            customInput.val(obj.customInput);
-            expectedOutput.val(obj.expectedOutput);
-        };
-        updatepage();
-        
+        window.location.href="http://127.0.0.1:8000/ide/"+obj.slug;
         
     }
     
