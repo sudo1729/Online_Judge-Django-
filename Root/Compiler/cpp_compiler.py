@@ -17,11 +17,12 @@ def executeCppCode(data):
         try:
             execution = run(["./"+data["slug"]],input=programInput, stdout=PIPE, stderr=STDOUT,timeout=5)
             output = execution.stdout.decode("utf-8")
-            if(output == expectedOutput):
+            if(output.rstrip() == expectedOutput.rstrip()):
                 verdict = "AC"
             else:
                 verdict = "WA"
         except Exception:
+            
             output,verdict = "Your program didn't execute in given time limit! Try to optimize your code","TLE"
         afterExecution = run(["rm",data['slug']])
     else:

@@ -6,7 +6,7 @@ def executePythonCode(data):
         res = subprocess.run([sys.executable, "-c", data['code']],input=data['customInput'], capture_output=True, text=True,timeout=5)
         if(res.stderr):
             verdict = "RE"
-        elif(str(res.stdout) == str(data['expectedOutput'])):
+        elif(str(res.stdout).rstrip() == str(data['expectedOutput']).rstrip()):
             verdict = "AC"
         else:
             verdict = "WA"
