@@ -31,7 +31,8 @@ function runcode() {
         $("#customInput").val(obj.customInput);
         $("#expectedOutput").val(obj.expectedOutput);
         document.getElementById('output').innerHTML = obj.output;
-        $("#verdict").val(obj.verdict);
+        $("#verdict").text(obj.verdict);
+        editor.getSession().setMode("ace/mode/"+obj.language);
     };
 
     params = {

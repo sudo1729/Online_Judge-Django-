@@ -32,7 +32,20 @@
 
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-            <a class="nav-item nav-link active" href="/">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link active" href="/">Home <span claYou’ve gone incognito
+                Now you can browse privately, and other people who use this device won’t see your activity. However, downloads, bookmarks and reading list items will be saved. Learn more
+                
+                Chrome won’t save the following information:
+                Your browsing history
+                Cookies and site data
+                Information entered in forms
+                Your activity might still be visible to:
+                Websites that you visit
+                Your employer or school
+                Your Internet service provider
+                Block third-party cookies
+                When on, sites can't use cookies that track you across the web. Features on some sites may break.
+                ss="sr-only">(current)</span></a>
             {% if user.is_authenticated %}
                 <a class="nav-item nav-link" href="contest">Contest</a>
             {% endif %}
@@ -53,9 +66,10 @@
 
 <div class="row no-gutters" id="loggedOutPage">
     <div class="col-md-6 left-container">
-
+        
         <div class="row no-gutters">
             <div class="col-sm-12 status-bar">
+                <a class="btn bnt-sm btn-info" id="verdict" style="float: left;">{{data.verdict}}</a>
                 <input style="display: none;" name="language" value="{{data.language}}">
                 <div class="dropdown">
                     <button class="btn btn-secondary dropdown-toggle btn-sm" type="button" id="dropdownMenu2"
@@ -71,7 +85,6 @@
                         <button class="dropdown-item" type="button" onclick="languageSelector('java')">Java</button>
                     </div>
                 </div>
-                <input type="text" name="verdic" id="verdict">
             </div>
         </div>
 

@@ -4,7 +4,6 @@ import sys
 def executePythonCode(data):
     try:
         res = subprocess.run([sys.executable, "-c", data['code']],input=data['customInput'], capture_output=True, text=True,timeout=5)
-        print(data['expectedOutput'])
         if(res.stderr):
             verdict = "RE"
         elif(str(res.stdout) == str(data['expectedOutput'])):

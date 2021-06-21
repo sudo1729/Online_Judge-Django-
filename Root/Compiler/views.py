@@ -13,14 +13,14 @@ from .random_generator import getrandom
 from Compiler.python_compiler import executePythonCode
 from Compiler.cpp_compiler import executeCppCode
 class CompilerList(APIView):
-    '''
-    GET Request of Rest API , uncomment to allow GET requests
+
+    #GET Request of Rest API , uncomment to allow GET requests
     def get(self, request, format=None):     
         compiler = Compiler.objects.all()
         serializer = CompilerSerializer(compiler, many=True)
         return Response(serializer.data)
 
-    '''
+
     def post(self, request, format=None):
         data = request.data
         try:
