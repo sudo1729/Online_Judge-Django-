@@ -14,6 +14,9 @@ def executePythonCode(data):
             result = res.stderr
         else:
             result = res.stdout
+        if(len(result)>1000):
+            result = result[:1000]
+        result+="..... Truncated"
         return result,verdict
     except Exception:
         return "Your Program did not execute in given time limit!","TLE"
